@@ -1,0 +1,14 @@
+﻿Objective: Prevent incoming traffic from a hostile IP to a host via a host-based simple stateful firewall.
+
+
+Scenario: You are a webserver administrator, and have noticed malicious traffic in your Linux webserver’s logs. The traffic is coming from a single IPv4 address, which is currently sending you HTTP HEAD request spam. While your webserver is patched, you still don’t want this IP accessing the server at all. 
+ 
+
+
+To successfully complete this lab, you must:
+
+
+1. Locate the malicious IP in the webserver logs
+2. Block ONLY that IP from accessing the server (Beginner), OR
+3. Block ONLY that IP from accessing TCP port 80 with a TCP reset (Advanced), OR/AND
+4. Block all future IPs attempting ShellShock automatically via an IPS (SysAdmin) 
