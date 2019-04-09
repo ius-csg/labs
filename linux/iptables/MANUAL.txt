@@ -10,5 +10,4 @@ To successfully complete this lab, you must:
 
 1. Locate the malicious IP in the webserver logs
 2. Block ONLY that IP from accessing the server (Beginner), OR
-3. Block ONLY that IP from accessing TCP port 80 with a TCP reset (Advanced), OR/AND
-4. Block all future IPs attempting ShellShock automatically via an IPS (SysAdmin) 
+3. Block ONLY that IP from accessing TCP port 80 with a TCP reset (Advanced)
