@@ -23,10 +23,10 @@ if [[ -n "$(command -v curl)" && -n "$(command -v nc)" ]]; then
             fi
         done
     else
-        echo 'Please include ONLY THE IP of the webserver as an argument'
+        (>&2 echo 'Please include ONLY THE IP of the webserver as an argument')
         exit 2
     fi
 else
-    echo 'You must have curl and netcat (nc) installed and in your path to run this script!'
+    (>&2 echo 'You must have curl and netcat (nc) installed and in your path to run this script!')
     exit 1
 fi
