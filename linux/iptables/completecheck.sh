@@ -8,7 +8,7 @@ if [[ -n "$(command -v curl)" && -n "$(command -v nc)" ]]; then
             sleep 10
             curl -I -s $1 --connect-timeout 5 > /dev/null
             if [[ $? -eq 28 ]]; then #Timeout
-                nc -z -w5 $1 8080 # Can I connect to any ports at all?
+                curl -I -s $1:8080 --connect-timeout 5 > /dev/null # Can I connect to any ports at all?
                 if [[ $? -eq 0 ]]; then # Yes!
                   echo 'Lab complete. Connection blocked to port 80'
                   exit
@@ -17,16 +17,12 @@ if [[ -n "$(command -v curl)" && -n "$(command -v nc)" ]]; then
                   exit
                 fi
             fi
-            if [[ $? -eq 35 ]]; then # TCP reset
-                echo 'Lab complete. Connection rejected with TCP reset!'
-                exit
-            fi
         done
     else
         (>&2 echo 'Please include ONLY THE IP of the webserver as an argument')
         exit 2
     fi
 else
-    (>&2 echo 'You must have curl and netcat (nc) installed and in your path to run this script!')
+    (>&2 echo 'You must have curl installed and in your path to run this script!')
     exit 1
 fi
