@@ -4,9 +4,11 @@
 if [[ -n "$(command -v curl)" && -n "$(command -v nc)" ]]; then
     if [[ $# -eq 1 && $1 =~ [0-9.] ]]; then
         echo 'Checking connection every 10 seconds...'
+        timeschecked=0
         while [ true ]; do
             sleep 10
             curl -I -s $1 --connect-timeout 5 > /dev/null
+            timeschecked=$((timeschecked++))
             if [[ $? -eq 28 ]]; then #Timeout
                 curl -I -s $1:8080 --connect-timeout 5 > /dev/null # Can I connect to any ports at all?
                 if [[ $? -eq 0 ]]; then # Yes!
@@ -16,6 +18,9 @@ if [[ -n "$(command -v curl)" && -n "$(command -v nc)" ]]; then
                   echo 'Lab complete. Connection blocked to server'
                   exit
                 fi
+            if [[ timeschecked > 29 ]]; then # Please don't make me change this. Just do the lab.
+                echo "SGludDogVHJ5IHVzaW5nIHRoZSBpcHRhYmxlcyAtLWRwb3J0IGFuZCAtcyBmbGFncwo=" | base64 -d
+                timeschecked=-100 # Don't show the message again for a while
             fi
         done
     else
