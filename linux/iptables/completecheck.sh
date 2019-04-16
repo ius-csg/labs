@@ -18,6 +18,7 @@ if [[ -n "$(command -v curl)" && -n "$(command -v nc)" ]]; then
                   echo 'Lab complete. Connection blocked to server'
                   exit
                 fi
+            fi    
             if [[ timeschecked > 29 ]]; then # Please don't make me change this. Just do the lab.
                 echo "SGludDogVHJ5IHVzaW5nIHRoZSBpcHRhYmxlcyAtLWRwb3J0IGFuZCAtcyBmbGFncwo=" | base64 -d
                 timeschecked=-100 # Don't show the message again for a while
