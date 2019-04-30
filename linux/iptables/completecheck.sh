@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script judges completion of the iptables lab via cURL
 # See the lab manual for more details
-if [[ -n "$(command -v curl)" && -n "$(command -v nc)" ]]; then
+if [[ -n "$(command -v curl)" ]]; then
     if [[ $# -eq 1 && $1 =~ [0-9.] ]]; then
         echo 'Checking connection every 10 seconds...'
         timeschecked=0
