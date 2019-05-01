@@ -22,7 +22,7 @@ if len(sys.argv) > 1:
                 print('Lab complete: Connection blocked to port 80')
                 exit()
         except requests.ConnectionError: #Connection rejected or other error
-            print('Failure: Connection to server was rejected or failed witout DROP')
+            print('Failure: Connection to server was rejected or failed without DROP')
             print('Reset your rules with iptables -F & iptables -P INPUT ACCEPT and try again')
             exit()
         else:
@@ -30,3 +30,6 @@ if len(sys.argv) > 1:
             if timeschecked > 29: #Stop cheating!
                 print(base64.b64decode(b"SGludDogVHJ5IHVzaW5nIHRoZSBpcHRhYmxlcyAtLWRwb3J0IGFuZCAtcyBmbGFncwo=").decode().rstrip())
                 timeschecked = -100
+else:
+    print('A command-line arguement with the URL of the webserver is required!')
+    exit(1)
