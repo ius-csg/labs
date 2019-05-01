@@ -2,8 +2,9 @@
 
 All you need is a Linux webserver listening on TCP 80, and 8080 and some sort of client machine to run the checkcomplete script on the same LAN. It doesn't matter which webserver. 
 
-The checkcomplete script will generate the HTTP HEAD requests and notify when the requests timeout or get a TCP reset. Please note that it requires that cURL be installed.
+The checkcomplete script will generate the HTTP HEAD requests and notify when the requests timeout or get a TCP reset.
 
-The checkcomplete script will ONLY accept an IPv4 address. No 'http://', no '*.local'. Just the IP of the webserver. Feel free to provide it to the user. 
+The checkcomplete script requires a command-line argument that consists of the URL for the webserver. 
+Python 3, along with requests, is also required. 
 
 Give the user shell access to both, and leave them alone.
